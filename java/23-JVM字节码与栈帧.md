@@ -186,10 +186,36 @@ javap -c 看字节码，-v 看常量池与 stack/locals
 
 ---
 
+## 八、JVM 知识对后端排障的映射
+
+学 JVM 不是纯理论——后端常见问题都能在 JVM 里找到对应解释：
+
+| 后端现象 | 对应 JVM 知识 |
+|---|---|
+| 递归太深、`StackOverflowError` | 虚拟机栈、栈帧（本篇） |
+| 服务内存增长、`OutOfMemoryError` | 堆、对象引用、GC、内存分析 |
+| 接口偶发延迟升高 | GC 停顿、内存分配、性能分析 |
+| 多线程读写不一致 | JMM、`volatile`、`synchronized`、happens-before（见 `19`、`20`） |
+| 服务 CPU 飙高、线程阻塞 | 线程状态、线程转储（thread dump） |
+| Spring 运行时对象和代理行为 | 类加载、反射、动态代理、对象生命周期（见 `22`、`25`） |
+
+典型例子：不断 `list.add(new byte[1MB])` 且 `list` 一直存活 → 数组无法被 GC 回收 → 堆占用增长 → 最终 `OutOfMemoryError`。能做出这个推断，JVM 就算学到位了。
+
+### 主线与辅线的学法
+
+```text
+主线（约 70%）：Spring / Spring Boot → MySQL → Redis → 后端项目
+辅线（约 30%）：JVM 运行原理 → GC / JMM → 基础排障
+```
+
+比例可随项目阶段调整。学习方式：**先用 Spring 写出能运行的功能 → 遇到对应机制时用 JVM/JMM 解释 → 做小实验验证**。不必等 JVM 全学完才开始 Spring。
+
+---
+
 ## 手写练习
 
 `javac Test.java && javap -c -v Test`，观察 `iload/istore/iadd` 与 `stack=`、`locals=` 的值，并对照本文解释为什么是这两个数。
 
 ---
 
-> 来源：原始 `java/20260916B2.md` 第 4～16 节（javap、字节码、栈/寄存器虚拟机、栈帧、局部变量表、操作数栈、StackOverflowError）
+> 来源：原始 `java/20260916B2.md` 第 4～16 节（javap、字节码、栈/寄存器虚拟机、栈帧、局部变量表、操作数栈、StackOverflowError）；《Java 后端学习笔记：JVM 栈帧、Spring 并行学习与 VS Code 环境》(`java/_archive/20261010_Java后端学习笔记_JVM栈帧Spring与VSCode.md` §一-三，JVM 排障映射与主辅线学法）
