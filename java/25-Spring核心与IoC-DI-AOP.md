@@ -109,6 +109,23 @@ public class LogAspect {
 - 原理是**动态代理**（接口用 JDK 代理，无接口用 CGLIB），不改目标源码。
 - 最大陷阱：`methodA()` 内部直接调本类的 `@Transactional methodB()` 会**绕过代理**，事务/AOP 都不生效——内部调用没再经过代理对象。
 
+## 七、容器概念澄清与面试速答（2026-10-14 增补）
+
+| 概念 | 一句话 |
+|---|---|
+| `BeanFactory` | IoC 容器的基础接口 |
+| `ApplicationContext` | 继承 `BeanFactory`，加事件、资源等应用功能，项目最常用 |
+| `BeanDefinition` | Bean 的元信息（类型/作用域/构造参数），**不是** Bean 实例 |
+| `singleton` | 每个容器内每个 Bean 定义通常一个共享实例，不是"整个 JVM 唯一" |
+
+**IoC vs DI**：IoC 是"控制权交给容器"的思想；DI（依赖注入）是实现 IoC 的常见方式——组件声明依赖，容器构造时传入。容器不禁止 `new`：DTO、临时对象照样自己 new，不需要"万物皆 Bean"。
+
+**面试四连答**：
+- Spring 是什么 → Java 应用框架，核心是 IoC/DI 容器 + AOP，还有事务/数据访问/Web 等模块。
+- IoC 和 DI 区别 → IoC 是思想，DI 是手段；构造器注入是常用形式。
+- `@RestController` 属于谁 → Spring MVC 的注解，不是 Boot 独有。
+- `@Autowired`/DI 是 Boot 的能力吗 → 不是，来自 Spring Framework 的 IoC 容器。
+
 ## 📌 易错点
 
 - "IoC = Spring 创建所有对象"——只创建注册进容器的 Bean。
@@ -134,4 +151,4 @@ AOP 靠代理，事务三坑：配置、回滚规则、自调用
 4. `@Transactional` 默认对什么异常回滚？为什么类内部自调用可能失效？
 5. Spring 只靠反射工作吗？
 
-> 来源：原始《Spring 基础学习笔记》(20261010-Spring基础学习笔记.md)、《Java 后端学习笔记：Spring、Web 请求处理与数据库设计》(Java后端学习笔记_Spring与Web请求处理_2026-10-08.md)，两文重叠部分已去重合并。
+> 来源：原始《Spring 基础学习笔记》(20261010-Spring基础学习笔记.md)、《Java 后端学习笔记：Spring、Web 请求处理与数据库设计》(Java后端学习笔记_Spring与Web请求处理_2026-10-08.md)、《Spring、Spring MVC、Spring Boot：核对修订版学习笔记》(Spring_SpringMVC_SpringBoot_核对修订版学习笔记_2026-10-14.md §2/3/8，容器概念/面试速答)，两文重叠部分已去重合并。

@@ -1,0 +1,5 @@
+# 安装包与超大文件不进 Git（GitHub 单文件上限 100MB，微信开发者工具 126MB 超限）
+*.exe
+*.msi
+wechat_devtools_*
+Another-Redis-Desktop-Manager.*

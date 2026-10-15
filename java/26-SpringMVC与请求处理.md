@@ -76,6 +76,41 @@ registry.addInterceptor(loginInterceptor)
 
 接口文档 = 前后端协作的 API 说明书：地址与方法、认证要求、参数结构与校验规则、成功/失败状态码与响应示例。用 Apifox/Postman/Swagger 管理。**"导入接口文档"只是把 OpenAPI 描述导进工具方便测试，不等于后端接口已实现**；反过来可用 springdoc-openapi 从代码生成文档。
 
+## 六、POST 与参数绑定（2026-10-14 增补）
+
+### 6.1 五个 Mapping 注解
+
+| 注解 | 匹配的 HTTP 方法 | 常见 REST 约定 |
+|---|---|---|
+| `@GetMapping` | GET | 查询资源 |
+| `@PostMapping` | POST | 新增资源、提交操作 |
+| `@PutMapping` | PUT | 整体创建或替换指定资源 |
+| `@PatchMapping` | PATCH | 部分更新资源 |
+| `@DeleteMapping` | DELETE | 删除资源 |
+
+`@PostMapping("/add")` 是 `@RequestMapping(value="/add", method=POST)` 的**组合注解**；`@RequestMapping` 还能按请求参数、请求头、`consumes`/`produces` 媒体类型匹配。常见用途是设计习惯，不是硬性规定。
+
+### 6.2 四种传参方式别混淆
+
+| 方式 | 注解 | 场景 |
+|---|---|---|
+| JSON 请求体 | `@RequestBody` | `Content-Type: application/json`，经 `HttpMessageConverter` 反序列化 |
+| 表单/查询参数 | `@RequestParam` | `x-www-form-urlencoded` 或 `?name=x` |
+| 路径变量 | `@PathVariable` | `/users/{id}` |
+| 文件上传 | `MultipartFile` + `@RequestParam` | `multipart/form-data` |
+
+**`@PostMapping` 不等于"接收 JSON"**：它只负责映射请求，读请求体是 `@RequestBody` 的事；POST 也不保证"写数据库"——是否持久化取决于 Service 逻辑。`Content-Type` 告诉服务端请求体媒体类型，以便选转换器。
+
+### 6.3 常见错误状态码
+
+| 现象 | 常见原因 | 排查 |
+|---|---|---|
+| 404 | 路径不存在 / 上下文路径不一致 | 核对类级+方法级映射 |
+| 405 | 路径对但 HTTP 方法错（GET 发成 POST） | 核对 Mapping 注解 |
+| 400 | JSON 格式错、类型不匹配、校验失败 | 检查 Body 与字段类型 |
+| 415 | Content-Type 不被支持 | 检查 `consumes`、消息转换器 |
+| 成功但库里没数据 | Controller 只返回消息没调 Service | 检查持久层调用 |
+
 ## 📌 易错点
 
 - "Spring MVC 就是服务器"——它是框架；Tomcat 提供 HTTP/Servlet 运行环境。
@@ -102,4 +137,4 @@ DispatcherServlet 是入口：Mapping 找人、Adapter 调人、Converter 写响
 4. Filter、Interceptor、AOP 的作用范围和典型用途有何不同？
 5. 为什么单例 Controller 里不能存"当前请求"的可变字段？
 
-> 来源：原始《Java 后端学习笔记：Spring、Web 请求处理与数据库设计》(Java后端学习笔记_Spring与Web请求处理_2026-10-08.md §0/3/4/9)、《Java 后端学习笔记：从 HTTP 请求到 Spring Boot》(Java后端学习笔记_从HTTP请求到SpringBoot.md §6/7/9)、《Spring 基础学习笔记》(20261010-Spring基础学习笔记.md §6/7)，重叠部分已去重合并。
+> 来源：原始《Java 后端学习笔记：Spring、Web 请求处理与数据库设计》(Java后端学习笔记_Spring与Web请求处理_2026-10-08.md §0/3/4/9)、《Java 后端学习笔记：从 HTTP 请求到 Spring Boot》(Java后端学习笔记_从HTTP请求到SpringBoot.md §6/7/9)、《Spring 基础学习笔记》(20261010-Spring基础学习笔记.md §6/7)、《Spring MVC @PostMapping：正确性核对与学习笔记》(SpringMVC_PostMapping_简洁版学习笔记_2026-10-14.md，Mapping 注解表/四种传参/错误状态码表)，重叠部分已去重合并。

@@ -96,6 +96,23 @@ Maven/Spring Boot 基础 → HTTP 接口与 JSON → 分层 + DI
 - 学《苍穹外卖》类项目：保留其请求链/分层/MyBatis/事务思想，**替换旧做法**——MD5 存密码改 bcrypt/Argon2id，旧 Swagger 改 springdoc-openapi。
 - 现阶段不深挖：Spring 源码、复杂 AOP、微服务/Spring Cloud。能独立写出可测试的 API 比背概念重要。
 
+## 七、Boot 3 与 Boot 4 的 Starter 命名（2026-10-14 增补）
+
+版本差异容易踩坑（截至 2026-10 的信息）：
+
+| Boot 主版本 | Web MVC Starter |
+|---|---|
+| Spring Boot 3.x | `spring-boot-starter-web`（教材/视频普遍用这个） |
+| Spring Boot 4.x | `spring-boot-starter-webmvc`（推荐；旧名 `starter-web` 已弃用） |
+
+同理：AOP 在 Boot 3 是 `spring-boot-starter-aop`，Boot 4 官方列表提供 `spring-boot-starter-aspectj`。**不要把 Boot 3 教程里的依赖名不加区分地当永久适用**。
+
+另外两个高频面试澄清：
+
+- **`@SpringBootApplication` = 三合一**：`@SpringBootConfiguration`（配置类）+ `@EnableAutoConfiguration`（自动配置）+ `@ComponentScan`（组件扫描）。
+- **自动配置是条件化的**：`@ConditionalOnClass`（类路径有某类才生效）+ `@ConditionalOnMissingBean`（用户没自己定义才生效）——所以"只配 `spring.datasource.url` 不一定自动生成 `JdbcTemplate`"，它依赖驱动、属性、已有 Bean 等全套条件。
+- **Boot 默认不允许循环引用**（`spring.main.allow-circular-references=false`）；遇到循环依赖首先应改设计消除，而不是去找"三级缓存"偏方。
+
 ## 📌 易错点
 
 - "Spring Boot 就是 Tomcat/就是 Spring MVC"——三者分工不同（见第一节）。
@@ -121,4 +138,4 @@ yml 改端口、连数据库；密码走环境变量
 4. `@RequestParam`、`@PathVariable`、`@RequestBody` 各收什么参数？
 5. 仅配置 `spring.datasource` 能自动完成 CRUD 吗？为什么？
 
-> 来源：原始《2026-09-19 学习笔记：Spring Boot 入门与 ICPC 赛程记录》(20260919_SpringBoot入门与ICPC赛程_学习笔记.md，其中 ICPC 赛程为时效信息不入知识体系)、《Java 后端学习笔记：从 HTTP 请求到 Spring Boot》(Java后端学习笔记_从HTTP请求到SpringBoot.md §11)。
+> 来源：原始《2026-09-19 学习笔记：Spring Boot 入门与 ICPC 赛程记录》(20260919_SpringBoot入门与ICPC赛程_学习笔记.md，其中 ICPC 赛程为时效信息不入知识体系)、《Java 后端学习笔记：从 HTTP 请求到 Spring Boot》(Java后端学习笔记_从HTTP请求到SpringBoot.md §11)、《Spring、Spring MVC、Spring Boot：核对修订版学习笔记》(Spring_SpringMVC_SpringBoot_核对修订版学习笔记_2026-10-14.md §0/5，Boot 3/4 Starter 命名/条件化自动配置/循环依赖默认)，重叠部分已去重合并。

@@ -57,7 +57,56 @@ public class BaseContext {
 1. **线程池复用**：Tomcat 工作线程是池化的，请求结束不 `remove()`，下一个请求可能读到上一个用户的 ID——`afterCompletion` 里必须清理，preHandle 开头也先清一次。
 2. **不跨线程**：`@Async`/线程池任务/异步 Servlet 不会自动继承，要另行设计上下文传递。
 
-## 五、完整链路
+## 五、ThreadLocal 深挖（2026-10-14 增补）
+
+### 5.1 标准工具类写法
+
+真实项目（如苍穹外卖的 `BaseContext`）长这样：
+
+```java
+public final class BaseContext {
+    private static final ThreadLocal<Long> CURRENT_ID = new ThreadLocal<>();
+    private BaseContext() {}          // 私有构造器：禁止实例化
+    public static void setCurrentId(Long id) { CURRENT_ID.set(id); }
+    public static Long getCurrentId() { return CURRENT_ID.get(); }
+    public static void removeCurrentId() { CURRENT_ID.remove(); }
+}
+```
+
+三个修饰符各自的作用：`private` 只类内可访问；`static` 字段属于类；`final` 引用不能重新赋值——但 `CURRENT_ID.set()` 改的是**当前线程绑定的值**，与 `final` 不冲突。
+
+### 5.2 为什么不用 Lombok @Data
+
+**`@Data` 会完全跳过 `static` 字段**，不会生成 `getCURRENT_ID()`。而且业务要的是"存/取/清一个 Long"，不是暴露 ThreadLocal 对象本身——这是封装。
+
+### 5.3 get/set/remove 的精确语义
+
+- `get()` 不是"按时间变化"，而是读"**当前执行线程**此时关联的值"；未设置过默认返回 `null`（`withInitial` 提供初始值时例外）。
+- `remove()` 只解除当前线程的绑定，**不会终止线程**。
+- 共享的是 ThreadLocal **对象引用**，不是值——`static` 不等于"所有线程共享同一个用户 ID"。
+- 泛型不能写 `ThreadLocal<long>`，必须 `ThreadLocal<Long>`；`set(100L)` 时 `long` 自动装箱。
+- C++ 对照：`thread_local long long id` 可帮助理解"每线程一份"，但语义不同（C++ 有初值 0，Java 未设置是 null）。
+
+### 5.4 JWT 拦截器逐段要点
+
+```text
+preHandle:
+  1. BaseContext.removeCurrentId()     ← 防御性清理（线程复用防旧身份）
+  2. OPTIONS 预检 / 非 HandlerMethod 放行
+  3. 取 header（项目约定 "token"，不是 Authorization）
+  4. parseToken → 验 Claims（sub/role/exp）
+  5. 查库确认账号仍存在且未停用（JWT 是签发时快照）
+  6. 全部通过 → setCurrentId(employeeId) → return true
+afterCompletion:
+  7. removeCurrentId()
+```
+
+- **401 vs 403**：401 = 身份未认证/凭证无效；403 = 身份已认证但无权限。状态码设计要和前端统一。
+- **`afterCompletion` 的触发条件**：只有本拦截器 `preHandle()` 返回 `true` 才会调用；返回 `false` 或异步处理有特例。所以"请求结束必清理"的说法不准确——`preHandle` 开头的防御性 `remove()` 才有保障。
+- **校验边界不能凭注释**：`parseToken` 是否真的验签、验 `exp`/issuer，必须看 `JwtUtil` 实现；JWT 的 `exp` 是 NumericDate（秒级数值），不是日期字符串。
+- **JWT 签名 ≠ 加密**：Payload 是明文，别存敏感信息。
+
+## 六、完整链路
 
 ```text
 登录：查用户名 → BCrypt.matches → 签发 JWT → 返回前端
@@ -92,5 +141,8 @@ ThreadLocal：线程私有，用完 remove，异步不传递
 3. 改 Payload 里的 role 为什么会导致验签失败？
 4. `preHandle` 返回 true/false 各发生什么？Filter 如何放行？
 5. ThreadLocal 的 static 会让不同线程共享用户 ID 吗？为什么必须 remove？
+6. `@Data` 能给 `static ThreadLocal` 字段生成 Getter 吗？业务上为什么也不需要？
+7. 验证了 JWT 为什么还查数据库？401 和 403 分别什么场景？
+8. `afterCompletion` 在 `preHandle` 返回 false 后还会执行吗？那清理责任在哪？
 
-> 来源：原始《Java 后端学习笔记：JWT、Filter 与 Interceptor》(Java后端学习笔记_JWT与FilterInterceptor.md)、《Java 后端学习笔记：密码安全、JWT、Interceptor 与 ThreadLocal》(Java后端学习笔记_密码安全JWT与ThreadLocal.md)、《Java 后端基础学习笔记》(Java后端基础_本次聊天学习笔记.md §4/§12，MD5 部分)，重叠部分已去重合并；概念区分（编码/哈希/加密）详见 `16-单元测试与安全基础.md`。
+> 来源：原始《Java 后端学习笔记：JWT、Filter 与 Interceptor》(Java后端学习笔记_JWT与FilterInterceptor.md)、《Java 后端学习笔记：密码安全、JWT、Interceptor 与 ThreadLocal》(Java后端学习笔记_密码安全JWT与ThreadLocal.md)、《Java 后端基础学习笔记》(Java后端基础_本次聊天学习笔记.md §4/§12，MD5 部分)、《Java ThreadLocal 与 Spring MVC JWT 拦截器：对话纠错学习笔记》(Java_ThreadLocal与JWT拦截器_对话纠错学习笔记_2026-10-14.md，ThreadLocal 深挖/拦截器逐段/边界条件)，重叠部分已去重合并；概念区分（编码/哈希/加密）详见 `16-单元测试与安全基础.md`。
