@@ -1,0 +1,1406 @@
+{
+  "version": 1,
+  "baseline": "Java 17+ / Spring Boot 3.x",
+  "courses": [
+    {
+      "id": "java-basics",
+      "title": "Java 基础与进阶",
+      "description": "建立类型、对象、集合、函数式处理与资源管理的可验证基础。",
+      "prerequisites": [],
+      "chapters": [
+        {
+          "id": "java-types",
+          "md": "learning/courses/java-basics/01-java-types.md",
+          "title": "运行平台、类型与数值边界",
+          "order": 1,
+          "sources": [
+            "learning/java/01-基础语法与类型.md",
+            "learning/java/Java后端_SpringBoot聊天核对与学习笔记.md"
+          ]
+        },
+        {
+          "id": "java-packages",
+          "md": "learning/courses/java-basics/02-java-packages.md",
+          "title": "包、导入与项目边界",
+          "order": 2,
+          "sources": [
+            "learning/java/02-包与导入.md",
+            "learning/java/00-总览与速记.md"
+          ]
+        },
+        {
+          "id": "java-strings",
+          "md": "learning/courses/java-basics/03-java-strings.md",
+          "title": "字符串、Unicode 与控制流",
+          "order": 3,
+          "sources": [
+            "learning/java/03-字符串与构建器.md",
+            "learning/java/04-控制流.md",
+            "learning/java/Java后端_SpringBoot聊天核对与学习笔记.md"
+          ]
+        },
+        {
+          "id": "java-objects",
+          "md": "learning/courses/java-basics/04-java-objects.md",
+          "title": "对象、继承与接口契约",
+          "order": 4,
+          "sources": [
+            "learning/java/05-面向对象.md",
+            "learning/java/06-抽象类与接口.md",
+            "learning/java/Java_Spring基础与JWT拦截器_核对版学习笔记.md",
+            "learning/java/Java后端_SpringBoot聊天核对与学习笔记.md"
+          ]
+        },
+        {
+          "id": "java-lambda",
+          "md": "learning/courses/java-basics/05-java-lambda.md",
+          "title": "内部类、Lambda 与回调",
+          "order": 5,
+          "sources": [
+            "learning/java/07-内部类.md",
+            "learning/java/Java_Lambda与MyBatis-Plus_聊天核对学习笔记.md",
+            "learning/java/Java后端_SpringBoot聊天核对与学习笔记.md"
+          ]
+        },
+        {
+          "id": "java-exceptions",
+          "md": "learning/courses/java-basics/06-java-exceptions.md",
+          "title": "异常传播与资源清理",
+          "order": 6,
+          "sources": [
+            "learning/java/08-异常.md",
+            "learning/java/13-IO与资源管理.md",
+            "learning/java/Java后端_SpringBoot聊天核对与学习笔记.md"
+          ]
+        },
+        {
+          "id": "java-collections",
+          "md": "learning/courses/java-basics/07-java-collections.md",
+          "title": "集合选择与相等性",
+          "order": 7,
+          "sources": [
+            "learning/java/11-集合框架.md",
+            "learning/java/12-泛型.md"
+          ]
+        },
+        {
+          "id": "java-generics",
+          "md": "learning/courses/java-basics/08-java-generics.md",
+          "title": "泛型、通配符与类型擦除",
+          "order": 8,
+          "sources": [
+            "learning/java/12-泛型.md",
+            "learning/java/11-集合框架.md"
+          ]
+        },
+        {
+          "id": "java-streams",
+          "md": "learning/courses/java-basics/09-java-streams.md",
+          "title": "Stream 与展示模型转换",
+          "order": 9,
+          "sources": [
+            "learning/java/Java_Lambda与MyBatis-Plus_聊天核对学习笔记.md",
+            "learning/java/Java后端_SpringBoot聊天核对与学习笔记.md"
+          ]
+        },
+        {
+          "id": "java-reflection",
+          "md": "learning/courses/java-basics/10-java-reflection.md",
+          "title": "JavaBean、record 与反射",
+          "order": 10,
+          "sources": [
+            "learning/java/09-JavaBean与反射.md",
+            "learning/java/Java后端五大基础_校订学习笔记_2026-10-23.md"
+          ]
+        },
+        {
+          "id": "java-time",
+          "md": "learning/courses/java-basics/11-java-time.md",
+          "title": "时间、正则与边界输入",
+          "order": 11,
+          "sources": [
+            "learning/java/15-日期时间与正则.md",
+            "learning/java/Java后端_SpringBoot聊天核对与学习笔记.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "java-concurrency",
+      "title": "Java 并发与 JVM",
+      "description": "从共享状态、线程池到运行时排障与网络 IO。",
+      "prerequisites": [
+        "java-basics"
+      ],
+      "chapters": [
+        {
+          "id": "java-threads",
+          "md": "learning/courses/java-concurrency/01-java-threads.md",
+          "title": "线程、锁与协作取消",
+          "order": 1,
+          "sources": [
+            "learning/java/14-多线程与锁.md",
+            "learning/java/17-JUC并发工具.md"
+          ]
+        },
+        {
+          "id": "java-jmm",
+          "md": "learning/courses/java-concurrency/02-java-jmm.md",
+          "title": "JMM、happens-before 与 volatile",
+          "order": 2,
+          "sources": [
+            "learning/java/19-JMM与内存可见性.md",
+            "learning/java/20-volatile.md",
+            "learning/java/Spring_Boot_使用与底层执行原理_核对版_2026-10-23.md"
+          ]
+        },
+        {
+          "id": "java-juc",
+          "md": "learning/courses/java-concurrency/03-java-juc.md",
+          "title": "原子类、并发容器与限流协作",
+          "order": 3,
+          "sources": [
+            "learning/java/17-JUC并发工具.md"
+          ]
+        },
+        {
+          "id": "java-executors",
+          "md": "learning/courses/java-concurrency/04-java-executors.md",
+          "title": "线程池、Future 与异步编排",
+          "order": 4,
+          "sources": [
+            "learning/java/21-线程池与异步编程.md",
+            "learning/java/17-JUC并发工具.md"
+          ]
+        },
+        {
+          "id": "java-jvm",
+          "md": "learning/courses/java-concurrency/05-java-jvm.md",
+          "title": "类加载、栈帧与运行时排障",
+          "order": 5,
+          "sources": [
+            "learning/java/22-类加载机制.md",
+            "learning/java/23-JVM字节码与栈帧.md"
+          ]
+        },
+        {
+          "id": "java-sockets",
+          "md": "learning/courses/java-concurrency/06-java-sockets.md",
+          "title": "Socket、协议边界与 NIO",
+          "order": 6,
+          "sources": [
+            "learning/java/18-网络编程基础.md",
+            "learning/java/24-Socket进阶与NIO.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "networks",
+      "title": "计算机网络",
+      "description": "从一条请求到地址、安全、性能与实时传输。",
+      "prerequisites": [],
+      "chapters": [
+        {
+          "id": "net-layers-addresses",
+          "md": "learning/courses/networks/layers-addresses.md",
+          "title": "分层、地址与一次发包",
+          "order": 1,
+          "sources": [
+            "learning/计算机网络/00-总览与速记.md",
+            "learning/计算机网络/01-网络概述与体系结构.md",
+            "learning/计算机网络/02-网络体系与地址.md",
+            "learning/计算机网络/互联网网络安全与代理原理学习笔记.md"
+          ]
+        },
+        {
+          "id": "net-dns-request-diagnosis",
+          "md": "learning/courses/networks/dns-request-diagnosis.md",
+          "title": "DNS、TCP 与面向服务的排障",
+          "order": 2,
+          "sources": [
+            "learning/计算机网络/03-应用层服务与排障.md",
+            "learning/计算机网络/互联网网络安全与代理原理学习笔记.md",
+            "learning/计算机网络/00-总览与速记.md"
+          ]
+        },
+        {
+          "id": "net-tls-proxy-boundaries",
+          "md": "learning/courses/networks/tls-proxy-boundaries.md",
+          "title": "TLS、代理与信任边界",
+          "order": 3,
+          "sources": [
+            "learning/计算机网络/互联网网络安全与代理原理学习笔记.md",
+            "learning/计算机网络/03-应用层服务与排障.md"
+          ]
+        },
+        {
+          "id": "net-performance",
+          "md": "learning/courses/networks/performance.md",
+          "title": "性能指标与排队：带宽不是响应速度",
+          "order": 4,
+          "sources": [
+            "learning/计算机网络/04-网络性能指标.md",
+            "learning/计算机网络/00-总览与速记.md"
+          ]
+        },
+        {
+          "id": "net-p2p-transfer",
+          "md": "learning/courses/networks/p2p-transfer.md",
+          "title": "P2P、ICE 与可靠文件传输",
+          "order": 5,
+          "sources": [
+            "learning/计算机网络/05-传输技术与P2P.md",
+            "learning/计算机网络/00-总览与速记.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "operating-systems",
+      "title": "操作系统基础",
+      "description": "执行现场、调度、构建过程与资源等待的工程解释。",
+      "prerequisites": [],
+      "chapters": [
+        {
+          "id": "os-processes-scheduling",
+          "md": "learning/courses/operating-systems/processes-scheduling.md",
+          "title": "进程、线程与调度：谁在等待什么",
+          "order": 1,
+          "sources": [
+            "learning/os/00-总览与速记.md",
+            "learning/os/01-操作系统基础概念.md",
+            "learning/os/03-线程与处理机调度.md"
+          ]
+        },
+        {
+          "id": "os-compile-link",
+          "md": "learning/courses/operating-systems/compile-link.md",
+          "title": "从源码到运行：编译、链接与诊断",
+          "order": 2,
+          "sources": [
+            "learning/os/00-总览与速记.md",
+            "learning/os/02-从源码到可执行文件.md"
+          ]
+        },
+        {
+          "id": "os-deadlocks",
+          "md": "learning/courses/operating-systems/deadlocks.md",
+          "title": "死锁、资源顺序与安全状态",
+          "order": 3,
+          "sources": [
+            "learning/os/00-总览与速记.md",
+            "learning/os/04-死锁.md",
+            "learning/os/03-线程与处理机调度.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "java-web",
+      "title": "Spring Web 与应用装配",
+      "description": "以 Boot 3.x 运行环境串联 IoC、代理与 HTTP 请求处理。",
+      "prerequisites": [
+        "java-basics"
+      ],
+      "chapters": [
+        {
+          "id": "java-boot",
+          "md": "learning/courses/java-web/01-java-boot.md",
+          "title": "Spring Boot 3：启动、Starter 与自动配置",
+          "order": 1,
+          "sources": [
+            "learning/java/27-SpringBoot快速入门.md",
+            "learning/java/Spring_Boot_使用与底层执行原理_核对版_2026-10-23.md",
+            "learning/java/Java后端_SpringBoot聊天核对与学习笔记.md",
+            "learning/java/Java后端_SSM与SpringMVC_聊天核对学习笔记_2026-10-23.md"
+          ]
+        },
+        {
+          "id": "java-ioc",
+          "md": "learning/courses/java-web/02-java-ioc.md",
+          "title": "IoC、DI、Bean 作用域与生命周期",
+          "order": 2,
+          "sources": [
+            "learning/java/25-Spring核心与IoC-DI-AOP.md",
+            "learning/java/Java_Spring基础与JWT拦截器_核对版学习笔记.md",
+            "learning/java/Java后端五大基础_校订学习笔记_2026-10-23.md",
+            "learning/java/Java后端_SpringBoot聊天核对与学习笔记.md",
+            "learning/java/Spring_Boot_使用与底层执行原理_核对版_2026-10-23.md",
+            "learning/java/Java后端_SSM与SpringMVC_聊天核对学习笔记_2026-10-23.md"
+          ]
+        },
+        {
+          "id": "java-aop",
+          "md": "learning/courses/java-web/03-java-aop.md",
+          "title": "AOP 代理与横切关注点",
+          "order": 3,
+          "sources": [
+            "learning/java/25-Spring核心与IoC-DI-AOP.md",
+            "learning/java/29-常用设计模式.md",
+            "learning/java/Spring_Boot_使用与底层执行原理_核对版_2026-10-23.md"
+          ]
+        },
+        {
+          "id": "java-mvc",
+          "md": "learning/courses/java-web/04-java-mvc.md",
+          "title": "从 HTTP 到 Controller：MVC 请求链",
+          "order": 4,
+          "sources": [
+            "learning/java/26-SpringMVC与请求处理.md",
+            "learning/java/28-Tomcat与Servlet及Nginx.md",
+            "learning/java/SpringMVC_Tomcat_Servlet_三层架构_核对学习笔记.md",
+            "learning/java/Java后端五大基础_校订学习笔记_2026-10-23.md",
+            "learning/java/Java后端_SSM与SpringMVC_聊天核对学习笔记_2026-10-23.md",
+            "learning/java/Java后端_SpringBoot聊天核对与学习笔记.md",
+            "learning/java/Spring_Boot_使用与底层执行原理_核对版_2026-10-23.md",
+            "learning/java/SpringBoot后端开发基础_聊天核对与学习笔记.md"
+          ]
+        },
+        {
+          "id": "java-validation",
+          "md": "learning/courses/java-web/05-java-validation.md",
+          "title": "DTO、校验与统一错误响应",
+          "order": 5,
+          "sources": [
+            "learning/java/Java后端_SSM与SpringMVC_聊天核对学习笔记_2026-10-23.md",
+            "learning/java/SpringBoot后端开发基础_聊天核对与学习笔记.md",
+            "learning/java/Java后端_SpringBoot聊天核对与学习笔记.md"
+          ]
+        },
+        {
+          "id": "java-filters",
+          "md": "learning/courses/java-web/06-java-filters.md",
+          "title": "Filter、Interceptor 与部署接入",
+          "order": 6,
+          "sources": [
+            "learning/java/26-SpringMVC与请求处理.md",
+            "learning/java/28-Tomcat与Servlet及Nginx.md",
+            "learning/java/Java后端五大基础_校订学习笔记_2026-10-23.md",
+            "learning/java/SpringMVC_Tomcat_Servlet_三层架构_核对学习笔记.md",
+            "learning/java/Spring_Boot_使用与底层执行原理_核对版_2026-10-23.md",
+            "learning/java/Java_Spring基础与JWT拦截器_核对版学习笔记.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "java-data",
+      "title": "数据库与 Java 持久层",
+      "description": "理解 JDBC、MyBatis、条件查询与业务事务。",
+      "prerequisites": [
+        "java-basics",
+        "java-web"
+      ],
+      "chapters": [
+        {
+          "id": "java-jdbc",
+          "md": "learning/courses/java-data/01-java-jdbc.md",
+          "title": "JDBC、参数绑定与连接生命周期",
+          "order": 1,
+          "sources": [
+            "learning/java/30-JDBC与数据库访问.md",
+            "learning/java/31-MyBatis基础.md"
+          ]
+        },
+        {
+          "id": "java-mybatis",
+          "md": "learning/courses/java-data/02-java-mybatis.md",
+          "title": "MyBatis 映射与动态 SQL",
+          "order": 2,
+          "sources": [
+            "learning/java/31-MyBatis基础.md",
+            "learning/java/SpringBoot后端开发基础_聊天核对与学习笔记.md",
+            "learning/java/Spring_Boot_使用与底层执行原理_核对版_2026-10-23.md"
+          ]
+        },
+        {
+          "id": "java-mybatis-plus",
+          "md": "learning/courses/java-data/03-java-mybatis-plus.md",
+          "title": "MyBatis-Plus 条件构造器与分页",
+          "order": 3,
+          "sources": [
+            "learning/java/Java_Lambda与MyBatis-Plus_聊天核对学习笔记.md",
+            "learning/java/SpringBoot后端开发基础_聊天核对与学习笔记.md",
+            "learning/java/Java后端_SpringBoot聊天核对与学习笔记.md"
+          ]
+        },
+        {
+          "id": "java-transactions",
+          "md": "learning/courses/java-data/04-java-transactions.md",
+          "title": "SQL、索引与事务中的业务不变量",
+          "order": 4,
+          "sources": [
+            "learning/java/32-MySQL基础.md",
+            "learning/java/25-Spring核心与IoC-DI-AOP.md",
+            "learning/java/Java后端_SSM与SpringMVC_聊天核对学习笔记_2026-10-23.md",
+            "learning/java/Spring_Boot_使用与底层执行原理_核对版_2026-10-23.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "java-engineering",
+      "title": "安全与工程实践",
+      "description": "落实认证授权、上下文生命周期、测试与工具调用边界。",
+      "prerequisites": [
+        "java-web",
+        "java-data"
+      ],
+      "chapters": [
+        {
+          "id": "java-passwords",
+          "md": "learning/courses/java-engineering/01-java-passwords.md",
+          "title": "密码存储、编码与密码学用途",
+          "order": 1,
+          "sources": [
+            "learning/java/16-单元测试与安全基础.md",
+            "learning/java/34-密码安全与JWT鉴权.md",
+            "learning/java/Java_Spring基础与JWT拦截器_核对版学习笔记.md"
+          ]
+        },
+        {
+          "id": "java-jwt",
+          "md": "learning/courses/java-engineering/02-java-jwt.md",
+          "title": "JWT 验证、认证与资源授权",
+          "order": 2,
+          "sources": [
+            "learning/java/34-密码安全与JWT鉴权.md",
+            "learning/java/Java后端五大基础_校订学习笔记_2026-10-23.md",
+            "learning/java/Java_Spring基础与JWT拦截器_核对版学习笔记.md"
+          ]
+        },
+        {
+          "id": "java-context",
+          "md": "learning/courses/java-engineering/03-java-context.md",
+          "title": "ThreadLocal 与请求上下文的清理",
+          "order": 3,
+          "sources": [
+            "learning/java/34-密码安全与JWT鉴权.md",
+            "learning/java/Java后端五大基础_校订学习笔记_2026-10-23.md",
+            "learning/java/Java_Spring基础与JWT拦截器_核对版学习笔记.md"
+          ]
+        },
+        {
+          "id": "java-delivery",
+          "md": "learning/courses/java-engineering/04-java-delivery.md",
+          "title": "Maven、测试、Git 与证据式调试",
+          "order": 4,
+          "sources": [
+            "learning/java/00-总览与速记.md",
+            "learning/java/10-学习方法与重点.md",
+            "learning/java/16-单元测试与安全基础.md",
+            "learning/java/33-Maven与依赖管理.md",
+            "learning/java/35-工程实践Git调试与Spike.md",
+            "learning/java/Java后端_SSM与SpringMVC_聊天核对学习笔记_2026-10-23.md",
+            "learning/java/Spring_Boot_使用与底层执行原理_核对版_2026-10-23.md"
+          ]
+        },
+        {
+          "id": "java-design-agent",
+          "md": "learning/courses/java-engineering/05-java-design-agent.md",
+          "title": "设计模式与 Java 工具型 Agent",
+          "order": 5,
+          "sources": [
+            "learning/java/29-常用设计模式.md",
+            "learning/java/36-Agent开发与MCP.md",
+            "learning/java/35-工程实践Git调试与Spike.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "algorithms",
+      "title": "算法与数据结构",
+      "description": "以不变量、状态和复杂度串联刷题与工程例子。",
+      "prerequisites": [],
+      "chapters": [
+        {
+          "id": "algo-invariants-search",
+          "md": "learning/courses/algorithms/invariants-search.md",
+          "title": "用不变量理解复杂度、二分与双指针",
+          "order": 1,
+          "sources": [
+            "learning/算法/00-总览与速记.md",
+            "learning/算法/算法学习笔记_思想与模板.md",
+            "learning/算法/算法刷题知识总结.md",
+            "learning/算法/算法思想与技巧复盘.md"
+          ]
+        },
+        {
+          "id": "algo-merge-radix",
+          "md": "learning/courses/algorithms/merge-radix.md",
+          "title": "归并与基数排序：稳定性是一条约束",
+          "order": 2,
+          "sources": [
+            "learning/算法/01-归并排序.md",
+            "learning/算法/03-基数排序.md",
+            "learning/算法/00-总览与速记.md"
+          ]
+        },
+        {
+          "id": "algo-heap-streams",
+          "md": "learning/courses/algorithms/heap-streams.md",
+          "title": "堆、Top K 与多路有序流",
+          "order": 3,
+          "sources": [
+            "learning/算法/02-堆与堆排序.md",
+            "learning/算法/算法刷题知识总结.md",
+            "learning/算法/算法学习笔记_思想与模板.md"
+          ]
+        },
+        {
+          "id": "algo-linked-list-lru",
+          "md": "learning/courses/algorithms/linked-list-lru.md",
+          "title": "链表的边界、原地恢复与 LRU",
+          "order": 4,
+          "sources": [
+            "learning/算法/链表算法学习笔记_重思想轻代码.md",
+            "learning/算法/回文链表_O1空间_算法学习笔记.md",
+            "learning/算法/算法学习笔记_思想与模板.md",
+            "learning/算法/算法刷题知识总结.md"
+          ]
+        },
+        {
+          "id": "algo-tree-contracts",
+          "md": "learning/courses/algorithms/tree-contracts.md",
+          "title": "树形 DFS：返回契约、路径与回溯",
+          "order": 5,
+          "sources": [
+            "learning/算法/算法思想与技巧复盘.md",
+            "learning/算法/算法刷题知识总结.md",
+            "learning/算法/算法知识总结_树形DFS_前缀和_DP_Python模板.md"
+          ]
+        },
+        {
+          "id": "algo-bfs-grid",
+          "md": "learning/courses/algorithms/bfs-grid.md",
+          "title": "网格搜索与多源 BFS",
+          "order": 6,
+          "sources": [
+            "learning/算法/算法思想与技巧复盘.md",
+            "learning/算法/算法知识总结_树形DFS_前缀和_DP_Python模板.md"
+          ]
+        },
+        {
+          "id": "algo-disjoint-sets",
+          "md": "learning/courses/algorithms/disjoint-sets.md",
+          "title": "并查集与动态连通性",
+          "order": 7,
+          "sources": [
+            "learning/算法/04-并查集.md",
+            "learning/算法/算法思想与技巧复盘.md",
+            "learning/算法/00-总览与速记.md"
+          ]
+        },
+        {
+          "id": "algo-trie-prefixes",
+          "md": "learning/courses/algorithms/trie-prefixes.md",
+          "title": "Trie：前缀、词频与内存模型",
+          "order": 8,
+          "sources": [
+            "learning/算法/05-前缀树Trie.md",
+            "learning/算法/00-总览与速记.md"
+          ]
+        },
+        {
+          "id": "algo-graphs-dependencies-mst",
+          "md": "learning/courses/algorithms/graphs-dependencies-mst.md",
+          "title": "依赖排序与最小生成树",
+          "order": 9,
+          "sources": [
+            "learning/算法/06-拓扑排序.md",
+            "learning/算法/07-最小生成树.md",
+            "learning/算法/00-总览与速记.md"
+          ]
+        },
+        {
+          "id": "algo-monotone-structures",
+          "md": "learning/courses/algorithms/monotone-structures.md",
+          "title": "单调结构与前后缀最值",
+          "order": 10,
+          "sources": [
+            "learning/算法/08-单调栈与单调队列.md",
+            "learning/算法/算法刷题知识总结.md",
+            "learning/算法/00-总览与速记.md"
+          ]
+        },
+        {
+          "id": "algo-prefix-differences",
+          "md": "learning/courses/algorithms/prefix-differences.md",
+          "title": "前缀和与二阶差分：从公式检查边界",
+          "order": 11,
+          "sources": [
+            "learning/算法/09-差分.md",
+            "learning/算法/算法知识总结_树形DFS_前缀和_DP_Python模板.md",
+            "learning/算法/00-总览与速记.md"
+          ]
+        },
+        {
+          "id": "algo-dp-backtracking",
+          "md": "learning/courses/algorithms/dp-backtracking.md",
+          "title": "动态规划与回溯：保留足以转移的信息",
+          "order": 12,
+          "sources": [
+            "learning/算法/算法学习笔记_思想与模板.md",
+            "learning/算法/算法知识总结_树形DFS_前缀和_DP_Python模板.md"
+          ]
+        },
+        {
+          "id": "algo-counting-python",
+          "md": "learning/courses/algorithms/counting-python.md",
+          "title": "数学计数与 Python 模板的成本",
+          "order": 13,
+          "sources": [
+            "learning/算法/算法知识总结_树形DFS_前缀和_DP_Python模板.md",
+            "learning/算法/算法刷题知识总结.md",
+            "learning/算法/算法思想与技巧复盘.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "generative-engineering",
+      "title": "生成式软件工程",
+      "description": "把可验证任务、证据与上下文管理作为协作基础。",
+      "prerequisites": [],
+      "chapters": [
+        {
+          "id": "generative-engineering-context-evidence",
+          "md": "learning/courses/generative-engineering/context-evidence.md",
+          "title": "模型上下文、注意力与证据边界",
+          "order": 1,
+          "sources": [
+            "learning/生成式软件工程笔记/jyy/提示词工程.md"
+          ]
+        },
+        {
+          "id": "generative-engineering-verifiable-workflow",
+          "md": "learning/courses/generative-engineering/verifiable-workflow.md",
+          "title": "可验证的生成式开发流程",
+          "order": 2,
+          "sources": [
+            "learning/生成式软件工程笔记/MattNote.md",
+            "learning/生成式软件工程笔记/jyy/提示词工程.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "embedded",
+      "title": "嵌入式与 STM32",
+      "description": "用具体芯片边界理解内核、外设寄存器和 HAL。",
+      "prerequisites": [
+        "operating-systems"
+      ],
+      "chapters": [
+        {
+          "id": "embedded-stm32-registers",
+          "md": "learning/courses/embedded/stm32-registers.md",
+          "title": "STM32、寄存器与 HAL 的正确边界",
+          "order": 1,
+          "sources": [
+            "learning/嵌入式学习/01-嵌入式与STM32基础.md"
+          ]
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "path": "learning/java/00-总览与速记.md",
+      "chapterIds": [
+        "java-packages",
+        "java-delivery"
+      ],
+      "disposition": "overview-replaced",
+      "reason": "旧主题导航由课程图取代；速记中不准确的绝对表述由各章修正，旧档案路径留原文。"
+    },
+    {
+      "path": "learning/java/01-基础语法与类型.md",
+      "chapterIds": [
+        "java-types"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/02-包与导入.md",
+      "chapterIds": [
+        "java-packages"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/03-字符串与构建器.md",
+      "chapterIds": [
+        "java-strings"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/04-控制流.md",
+      "chapterIds": [
+        "java-strings"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/05-面向对象.md",
+      "chapterIds": [
+        "java-objects"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/06-抽象类与接口.md",
+      "chapterIds": [
+        "java-objects"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/07-内部类.md",
+      "chapterIds": [
+        "java-lambda"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/08-异常.md",
+      "chapterIds": [
+        "java-exceptions"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/09-JavaBean与反射.md",
+      "chapterIds": [
+        "java-reflection"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/10-学习方法与重点.md",
+      "chapterIds": [
+        "java-delivery"
+      ],
+      "disposition": "merged-guidance",
+      "reason": "将学习循环与能力验收并入工程实践，不保留固定课时或背口诀即掌握的判断。"
+    },
+    {
+      "path": "learning/java/11-集合框架.md",
+      "chapterIds": [
+        "java-collections",
+        "java-generics"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/12-泛型.md",
+      "chapterIds": [
+        "java-collections",
+        "java-generics"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/13-IO与资源管理.md",
+      "chapterIds": [
+        "java-exceptions"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/14-多线程与锁.md",
+      "chapterIds": [
+        "java-threads"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/15-日期时间与正则.md",
+      "chapterIds": [
+        "java-time"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/16-单元测试与安全基础.md",
+      "chapterIds": [
+        "java-passwords",
+        "java-delivery"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/17-JUC并发工具.md",
+      "chapterIds": [
+        "java-threads",
+        "java-juc",
+        "java-executors"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/18-网络编程基础.md",
+      "chapterIds": [
+        "java-sockets"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/19-JMM与内存可见性.md",
+      "chapterIds": [
+        "java-jmm"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/20-volatile.md",
+      "chapterIds": [
+        "java-jmm"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/21-线程池与异步编程.md",
+      "chapterIds": [
+        "java-executors"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/22-类加载机制.md",
+      "chapterIds": [
+        "java-jvm"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/23-JVM字节码与栈帧.md",
+      "chapterIds": [
+        "java-jvm"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/24-Socket进阶与NIO.md",
+      "chapterIds": [
+        "java-sockets"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/25-Spring核心与IoC-DI-AOP.md",
+      "chapterIds": [
+        "java-ioc",
+        "java-aop",
+        "java-transactions"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/26-SpringMVC与请求处理.md",
+      "chapterIds": [
+        "java-mvc",
+        "java-filters"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/27-SpringBoot快速入门.md",
+      "chapterIds": [
+        "java-boot"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/28-Tomcat与Servlet及Nginx.md",
+      "chapterIds": [
+        "java-mvc",
+        "java-filters"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/29-常用设计模式.md",
+      "chapterIds": [
+        "java-aop",
+        "java-design-agent"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/30-JDBC与数据库访问.md",
+      "chapterIds": [
+        "java-jdbc"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/31-MyBatis基础.md",
+      "chapterIds": [
+        "java-jdbc",
+        "java-mybatis"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/32-MySQL基础.md",
+      "chapterIds": [
+        "java-transactions"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/33-Maven与依赖管理.md",
+      "chapterIds": [
+        "java-delivery"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/34-密码安全与JWT鉴权.md",
+      "chapterIds": [
+        "java-passwords",
+        "java-jwt",
+        "java-context"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/35-工程实践Git调试与Spike.md",
+      "chapterIds": [
+        "java-delivery",
+        "java-design-agent"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/36-Agent开发与MCP.md",
+      "chapterIds": [
+        "java-design-agent"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/Java_Lambda与MyBatis-Plus_聊天核对学习笔记.md",
+      "chapterIds": [
+        "java-lambda",
+        "java-streams",
+        "java-mybatis-plus"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/Java_Spring基础与JWT拦截器_核对版学习笔记.md",
+      "chapterIds": [
+        "java-objects",
+        "java-ioc",
+        "java-filters",
+        "java-passwords",
+        "java-jwt",
+        "java-context"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/Java后端_SSM与SpringMVC_聊天核对学习笔记_2026-10-23.md",
+      "chapterIds": [
+        "java-boot",
+        "java-ioc",
+        "java-mvc",
+        "java-validation",
+        "java-transactions",
+        "java-delivery"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/Java后端_SpringBoot聊天核对与学习笔记.md",
+      "chapterIds": [
+        "java-types",
+        "java-strings",
+        "java-objects",
+        "java-lambda",
+        "java-exceptions",
+        "java-streams",
+        "java-time",
+        "java-boot",
+        "java-ioc",
+        "java-mvc",
+        "java-validation",
+        "java-mybatis-plus"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/Java后端五大基础_校订学习笔记_2026-10-23.md",
+      "chapterIds": [
+        "java-reflection",
+        "java-ioc",
+        "java-mvc",
+        "java-filters",
+        "java-jwt",
+        "java-context"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/SpringBoot后端开发基础_聊天核对与学习笔记.md",
+      "chapterIds": [
+        "java-mvc",
+        "java-validation",
+        "java-mybatis",
+        "java-mybatis-plus"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/SpringMVC_Tomcat_Servlet_三层架构_核对学习笔记.md",
+      "chapterIds": [
+        "java-mvc",
+        "java-filters"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/java/Spring_Boot_使用与底层执行原理_核对版_2026-10-23.md",
+      "chapterIds": [
+        "java-jmm",
+        "java-boot",
+        "java-ioc",
+        "java-aop",
+        "java-mvc",
+        "java-filters",
+        "java-mybatis",
+        "java-transactions",
+        "java-delivery"
+      ],
+      "disposition": "merged-and-corrected",
+      "reason": "按知识主题合并重复对话，保留关键疑问与开发场景，规范版本和适用前提；原稿原位保留。"
+    },
+    {
+      "path": "learning/os/00-总览与速记.md",
+      "chapterIds": [
+        "os-processes-scheduling",
+        "os-compile-link",
+        "os-deadlocks"
+      ],
+      "disposition": "merged",
+      "reason": "总览和速记合并为课程顺序与各章复习入口，原稿原位保留。"
+    },
+    {
+      "path": "learning/os/01-操作系统基础概念.md",
+      "chapterIds": [
+        "os-processes-scheduling"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/os/02-从源码到可执行文件.md",
+      "chapterIds": [
+        "os-compile-link"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/os/03-线程与处理机调度.md",
+      "chapterIds": [
+        "os-processes-scheduling",
+        "os-deadlocks"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/os/04-死锁.md",
+      "chapterIds": [
+        "os-deadlocks"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/嵌入式学习/01-嵌入式与STM32基础.md",
+      "chapterIds": [
+        "embedded-stm32-registers"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/生成式软件工程笔记/jyy/提示词工程.md",
+      "chapterIds": [
+        "generative-engineering-context-evidence",
+        "generative-engineering-verifiable-workflow"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/生成式软件工程笔记/MattNote.md",
+      "chapterIds": [
+        "generative-engineering-verifiable-workflow"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/算法/00-总览与速记.md",
+      "chapterIds": [
+        "algo-invariants-search",
+        "algo-merge-radix",
+        "algo-disjoint-sets",
+        "algo-trie-prefixes",
+        "algo-graphs-dependencies-mst",
+        "algo-monotone-structures",
+        "algo-prefix-differences"
+      ],
+      "disposition": "merged",
+      "reason": "总览和速记合并为课程顺序与各章复习入口，原稿原位保留。"
+    },
+    {
+      "path": "learning/算法/01-归并排序.md",
+      "chapterIds": [
+        "algo-merge-radix"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/算法/02-堆与堆排序.md",
+      "chapterIds": [
+        "algo-heap-streams"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/算法/03-基数排序.md",
+      "chapterIds": [
+        "algo-merge-radix"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/算法/04-并查集.md",
+      "chapterIds": [
+        "algo-disjoint-sets"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/算法/05-前缀树Trie.md",
+      "chapterIds": [
+        "algo-trie-prefixes"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/算法/06-拓扑排序.md",
+      "chapterIds": [
+        "algo-graphs-dependencies-mst"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/算法/07-最小生成树.md",
+      "chapterIds": [
+        "algo-graphs-dependencies-mst"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/算法/08-单调栈与单调队列.md",
+      "chapterIds": [
+        "algo-monotone-structures"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/算法/09-差分.md",
+      "chapterIds": [
+        "algo-prefix-differences"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/算法/回文链表_O1空间_算法学习笔记.md",
+      "chapterIds": [
+        "algo-linked-list-lru"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/算法/算法刷题知识总结.md",
+      "chapterIds": [
+        "algo-invariants-search",
+        "algo-heap-streams",
+        "algo-linked-list-lru",
+        "algo-tree-contracts",
+        "algo-monotone-structures",
+        "algo-counting-python"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/算法/算法学习笔记_思想与模板.md",
+      "chapterIds": [
+        "algo-invariants-search",
+        "algo-heap-streams",
+        "algo-linked-list-lru",
+        "algo-dp-backtracking"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/算法/算法思想与技巧复盘.md",
+      "chapterIds": [
+        "algo-invariants-search",
+        "algo-tree-contracts",
+        "algo-bfs-grid",
+        "algo-disjoint-sets",
+        "algo-counting-python"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/算法/算法知识总结_树形DFS_前缀和_DP_Python模板.md",
+      "chapterIds": [
+        "algo-tree-contracts",
+        "algo-bfs-grid",
+        "algo-prefix-differences",
+        "algo-dp-backtracking",
+        "algo-counting-python"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/算法/链表算法学习笔记_重思想轻代码.md",
+      "chapterIds": [
+        "algo-linked-list-lru"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/计算机网络/00-总览与速记.md",
+      "chapterIds": [
+        "net-layers-addresses",
+        "net-dns-request-diagnosis",
+        "net-performance",
+        "net-p2p-transfer"
+      ],
+      "disposition": "merged",
+      "reason": "总览和速记合并为课程顺序与各章复习入口，原稿原位保留。"
+    },
+    {
+      "path": "learning/计算机网络/01-网络概述与体系结构.md",
+      "chapterIds": [
+        "net-layers-addresses"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/计算机网络/02-网络体系与地址.md",
+      "chapterIds": [
+        "net-layers-addresses"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/计算机网络/03-应用层服务与排障.md",
+      "chapterIds": [
+        "net-dns-request-diagnosis",
+        "net-tls-proxy-boundaries"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/计算机网络/04-网络性能指标.md",
+      "chapterIds": [
+        "net-performance"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/计算机网络/05-传输技术与P2P.md",
+      "chapterIds": [
+        "net-p2p-transfer"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    },
+    {
+      "path": "learning/计算机网络/互联网网络安全与代理原理学习笔记.md",
+      "chapterIds": [
+        "net-layers-addresses",
+        "net-dns-request-diagnosis",
+        "net-tls-proxy-boundaries"
+      ],
+      "disposition": "merged",
+      "reason": "按概念与先修关系重新编写，保留原稿；纠错、实例和引用见课程及知识审校记录。"
+    }
+  ]
+}
